@@ -1,0 +1,91 @@
+{
+        
+        "type": "origins:active_self",
+        "name":"Ghost step",
+        "description":"WIP",
+        "cooldown": 80,
+        "key": {
+            "key": "key.sprint",
+            "continuous": true
+        },
+        "hud_render": {
+            "should_render": true,
+            "order": 1,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index":20 ,
+            "icon_index": 0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "fencers:blitz/dash/direction_direction",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        "entity_action": {
+            "type":"origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "fencers:blitz/dash/direction_direction",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    "action": {
+                        "type":"origins:add_velocity",
+                        "space": "local_horizontal_normalized",
+                        "z": 1.2,
+                        "client": true,
+                        "server": true 
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "fencers:blitz/dash/direction_direction",
+                        "comparison": ">=",
+                        "compare_to": 2
+                    },
+                    "action": {
+                        "type":"origins:add_velocity",
+                        "space": "local_horizontal_normalized",
+                        "z": -1.2,
+                        "client": true,
+                        "server": true 
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "fencers:blitz/dash/direction_direction",
+                        "comparison": ">=",
+                        "compare_to": 3
+                    },
+                    "action": {
+                        "type":"origins:add_velocity",
+                        "space": "local_horizontal_normalized",
+                        "x": 1.2,
+                        "client": true,
+                        "server": true 
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "fencers:blitz/dash/direction_direction",
+                        "comparison": ">=",
+                        "compare_to": 4
+                    },
+                    "action": {
+                        "type":"origins:add_velocity",
+                        "space": "local_horizontal_normalized",
+                        "x": -1.2,
+                        "client": true,
+                        "server": true 
+                    }
+                }
+            ]
+        }
+        
+    
+}

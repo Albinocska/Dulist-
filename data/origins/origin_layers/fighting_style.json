@@ -1,0 +1,23 @@
+{
+    "order": 1,
+    "name":"Fighting style",
+    "allow_random": true,
+    "enabled": true,
+    "missing_description":{
+        "text":"You currently have no fighting style"
+    },
+    "missing_name":{
+        "text":"None"
+    },
+    "origins": [
+        {
+            "condition": {
+                "type": "origins:origin",
+                "origin": "fencers:duelist"
+            },
+            "origins": [
+                "fencers:blitz"
+            ]
+        }
+    ]
+}

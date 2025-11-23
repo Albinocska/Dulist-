@@ -1,0 +1,12 @@
+{
+    "name":"Blitz style",
+    "description":"Fight with unmatched agility. Dash around and dance to your heart's content as your adverseries struggle to keep pace",
+    "impact": 0,
+    "icon":"minecraft:potion",
+    "powers": [
+        "fencers:blitz/dash/ability",
+        "fencers:blitz/dash/direction",
+        "fencers:blitz/knockback_on_attack",
+        "fencers:blitz/passives"
+    ]
+}

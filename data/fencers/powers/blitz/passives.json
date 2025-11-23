@@ -1,0 +1,13 @@
+{
+        "type":"origins:attribute",
+        "name":"Heightened agility",
+        "description":"You move significantly faster",
+        "modifiers":[
+            {
+                "attribute": "minecraft:generic.movement_speed",
+                "name": "Speed",
+                "operation": "addition",
+                "value": 0.07
+            }
+        ]
+}
