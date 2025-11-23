@@ -1,0 +1,28 @@
+{
+    "name": "The Duelist",
+    "description": "A new challenger approaches...",
+    "powers": [
+        "fencers:p/chips",
+        "fencers:p/full_heal",
+        "fencers:b/no_armor",
+        "fencers:b/no_healing",
+        "fencers:g/web",
+        "fencers:wager/chips/advance_valiance",
+        "fencers:wager/chips/blitz",
+        "fencers:wager/chips/overwhelming_strength",
+        "fencers:wager/chips/true_focus",
+        "fencers:wager/chips/over_all",
+        "fencers:wager/chips/wagered",
+        "fencers:wager/powers/wager",
+        "fencers:wager/powers/wager_showcase",
+        "fencers:wager/powers/scroll",
+        "fencers:wager/powers/dash",
+        "fencers:wager/buffs/blitz_bonus",
+        "fencers:wager/buffs/true_focus_bonus"
+
+    ],
+    "icon": {
+        "item": "iron_sword"
+    },
+    "impact": 2
+}

@@ -1,0 +1,11 @@
+{
+    
+        "type": "origins:prevent_item_use",
+        "name":"Needless defense",
+        "description":"You have no need to wear armor",
+        "item_condition": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 0
+        }    
+}

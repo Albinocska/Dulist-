@@ -1,0 +1,208 @@
+{   
+    "type":"origins:multiple",
+    "hidden": true,
+
+    "cooldown_2":{
+        "type": "origins:cooldown",
+        "cooldown": 60,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "fencers:wager/chips/wagered",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index":20 ,
+            "icon_index": 0,
+            "order": 23,
+            "condition": {
+                "type": "origins:power_active",
+                "power": "*:*_cooldown_2"
+            }
+        }
+    },
+
+    "cooldown_3":{
+        "type": "origins:cooldown",
+        "cooldown": 80,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "fencers:wager/chips/wagered",
+            "comparison": "==",
+            "compare_to": 3
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index":20 ,
+            "icon_index": 0,
+            "order": 23,
+            "condition": {
+                "type": "origins:power_active",
+                "power": "*:*_cooldown_3"
+            }
+        }
+    },
+
+    "cooldown_4":{
+        "type": "origins:cooldown",
+        "cooldown": 100,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "fencers:wager/chips/wagered",
+            "comparison": "==",
+            "compare_to": 4
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index":20 ,
+            "icon_index": 0,
+            "order": 23,
+            "condition": {
+                "type": "origins:power_active",
+                "power": "*:*_cooldown_4"
+            }
+        }
+    },
+    "cooldown_5":{
+        "type": "origins:cooldown",
+        "cooldown": 120,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "fencers:wager/chips/wagered",
+            "comparison": "==",
+            "compare_to": 5
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index":20 ,
+            "icon_index": 0,
+            "order": 23,
+            "condition": {
+                "type": "origins:power_active",
+                "power": "*:*_cooldown_5"
+            }
+        }
+    },
+    "dash":{
+        "type":"origins:active_self",
+        "hidden": true,
+        "cooldown": 0,
+        "key": "key.sprint",
+        "condition": {
+            "type":"origins:resource",
+            "resource": "fencers:wager/chips/blitz",
+            "comparison": ">=",
+            "compare_to": 2
+        },
+        "entity_action": {
+            "type":"origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type":"apoli:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power_active",
+                                "power": "*:*_cooldown_2"
+                            },
+                            {
+                                "type":"origins:resource",
+                                "resource": "*:*_cooldown_2",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+
+                        ]
+                    },
+                    "action": {
+                        "type": "apoli:add_velocity",
+                        "space": "local",
+                        "z": 1,
+                        "client": true,
+                        "server": true
+                    }
+                },
+                {
+                    "condition": {
+                        "type":"apoli:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power_active",
+                                "power": "*:*_cooldown_3"
+                            },
+                            {
+                                "type":"origins:resource",
+                                "resource": "*:*_cooldown_3",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+
+                        ]
+                    },
+                    "action": {
+                        "type": "apoli:add_velocity",
+                        "space": "local",
+                        "z": 1.5,
+                        "client": true,
+                        "server": true
+                    }
+                },
+                {
+                    "condition": {
+                        "type":"apoli:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power_active",
+                                "power": "*:*_cooldown_4"
+                            },
+                            {
+                                "type":"origins:resource",
+                                "resource": "*:*_cooldown_4",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+
+                        ]
+                    },
+                    "action": {
+                        "type": "apoli:add_velocity",
+                        "space": "local",
+                        "z": 2,
+                        "client": true,
+                        "server": true
+                    }
+                },
+                {
+                    "condition": {
+                        "type":"apoli:and",
+                        "conditions": [
+                            {
+                                "type": "origins:power_active",
+                                "power": "*:*_cooldown_5"
+                            },
+                            {
+                                "type":"origins:resource",
+                                "resource": "*:*_cooldown_5",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+
+                        ]
+                    },
+                    "action": {
+                        "type": "apoli:add_velocity",
+                        "space": "local",
+                        "z": 2.5,
+                        "client": true,
+                        "server": true
+                    }
+                }
+            ]
+        }
+    }
+}

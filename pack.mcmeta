@@ -1,0 +1,9 @@
+{
+    "pack": {
+        "name": "My Pack",
+        "id": "my_pack",
+        "pack_format": 15,
+        "version": "1.0.0",
+        "description": ""
+    }
+}

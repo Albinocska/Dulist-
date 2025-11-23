@@ -1,0 +1,19 @@
+{
+        "type":"origins:resource",
+        "min": 0,
+        "max": 5,
+        "hidden": true,
+        "hud_render": {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+                "bar_index": 1,
+                "icon_index": 0,
+                "order": 8,
+                "condition": {
+                        "type": "origins:resource",
+                        "comparison": ">",
+                        "compare_to": 0,
+                        "resource": "*:*"
+                }
+        }
+}

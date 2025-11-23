@@ -1,0 +1,8 @@
+{
+    "name": "no regen",
+    "hidden": true,
+    "type": "origins:multiple",
+    "key0": {
+        "type": "origins:disable_regen"
+    }
+}

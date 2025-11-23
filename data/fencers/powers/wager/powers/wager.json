@@ -1,0 +1,187 @@
+{
+    "type": "origins:active_self",
+    "name":"Wager",
+    "description":"test",
+    "hud_render": {
+        "should_render": false
+    },
+
+    "key": "key.origins.primary_active",
+    "cooldown": 1,
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text":"Activate with %s!"
+        }
+    ],
+
+    "condition": {
+        "type":"origins:or",
+        "conditions": [ 
+            {
+                "type":"origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 5,
+                        "comparison": "<",
+                        "resource": "fencers:wager/chips/over_all"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 5,
+                        "comparison": "==",
+                        "resource": "fencers:p/chips_revives"
+                    }
+                ]
+            },
+            {
+                "type":"origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 4,
+                        "comparison": "<",
+                        "resource": "fencers:wager/chips/over_all"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 4,
+                        "comparison": "==",
+                        "resource": "fencers:p/chips_revives"
+                    }
+                ]
+            },
+            {
+                "type":"origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 3,
+                        "comparison": "<",
+                        "resource": "fencers:wager/chips/over_all"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 3,
+                        "comparison": "==",
+                        "resource": "fencers:p/chips_revives"
+                    }
+                ]
+            },
+            {
+                "type":"origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 2,
+                        "comparison": "<",
+                        "resource": "fencers:wager/chips/over_all"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 2,
+                        "comparison": "==",
+                        "resource": "fencers:p/chips_revives"
+                    }
+                ]
+            },
+            {
+                "type":"origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 1,
+                        "comparison": "<",
+                        "resource": "fencers:wager/chips/over_all"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 1,
+                        "comparison": "==",
+                        "resource": "fencers:p/chips_revives"
+                    }
+                ]
+            }
+        ]
+    },
+    "entity_action": {
+        "type":"origins:and",
+        "actions": [
+            {
+                "type":"origins:if_else_list",
+                "actions": [
+                    {
+                        "condition": {
+                            "type":"origins:resource",
+                            "compare_to": 0,
+                            "comparison": "==",
+                            "resource": "fencers:wager/chips/wagered"
+                        },
+                        "action": {
+                            "type": "origins:change_resource",
+                            "operation": "add",
+                            "change": 1,
+                            "resource": "fencers:wager/chips/advance_valiance"
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type":"origins:resource",
+                            "compare_to": 1,
+                            "comparison": "==",
+                            "resource": "fencers:wager/chips/wagered"
+                        },
+                        "action": {
+                            "type": "origins:change_resource",
+                            "operation": "add",
+                            "change": 1,
+                            "resource": "fencers:wager/chips/blitz"
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type":"origins:resource",
+                            "compare_to": 2,
+                            "comparison": "==",
+                            "resource": "fencers:wager/chips/wagered"
+                        },
+                        "action": {
+                            "type": "origins:change_resource",
+                            "operation": "add",
+                            "change": 1,
+                            "resource": "fencers:wager/chips/overwhelming_strength"
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type":"origins:resource",
+                            "compare_to": 3,
+                            "comparison": "==",
+                            "resource": "fencers:wager/chips/wagered"
+                        },
+                        "action": {
+                            "type": "origins:change_resource",
+                            "operation": "add",
+                            "change": 1,
+                            "resource": "fencers:wager/chips/true_focus"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "origins:change_resource",
+                "change": 1,
+                "operation": "add",
+                "resource": "fencers:wager/chips/over_all"
+            },
+            {
+                "type": "origins:play_sound",
+                "sound": "minecraft:item.armor.equip_chain",
+                "volume": 1,
+                "pitch": 2
+            }
+        ]
+    }
+}
