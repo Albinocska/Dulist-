@@ -1,6 +1,7 @@
 {
-    "hidden": true,
     "type": "origins:phasing",
+    "name":"Web_placeholder",
+    "description":"You are unaffected by the stickyness of spider webs",
     "block_condition": {
         "type": "origins:block",
         "block": "cobweb"

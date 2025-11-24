@@ -1,0 +1,13 @@
+{
+    "type":"origins:attribute",
+    "name":"Natural extension",
+    "description":"After years of training, you've learned how to exploit the full reach of your weapon",
+    "modifiers":[
+        {
+            "attribute": "reach-entity-attributes:attack_range",
+            "name": "Entity Reach",
+            "operation": "addition",
+            "value": 0.25
+        }
+    ]    
+}

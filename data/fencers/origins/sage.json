@@ -1,0 +1,13 @@
+{
+    "name":"Sage of battle",
+    "description":"You grew up with your blade. You've learned all that made it unique till it all but became an extension of you.",
+    "impact": 0,
+    "icon":{
+        "item":"minecraft:experience_bottle"
+    },
+    "powers": [
+        "fencers:sage/counter",
+        "fencers:sage/perfect_strike",
+        "fencers:sage/reach_bonus"
+    ]
+}

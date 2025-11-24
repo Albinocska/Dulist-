@@ -1,0 +1,220 @@
+{
+    "type": "origins:multiple",
+
+    "fast":{
+        "type": "origins:cooldown",
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "medium":{
+        "type": "origins:cooldown",
+        "cooldown": 25,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "slow":{
+        "type": "origins:cooldown",
+        "cooldown": 30,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "reset_on_hit":{
+        "type": "origins:self_action_on_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_fast"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_medium"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_slow"
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "damage_increase_fast":{
+        "type": "origins:conditioned_attribute",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:netherite_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:diamond_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:gold_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:iron_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                        "item": "minecraft:stone_sword"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:wooden_sword"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_fast",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+
+        "modifier":{
+            "name":"Perfect strike damage bonus",
+            "attribute": "minecraft:attack_damage",
+            "operation": "multiply_total",
+            "value": 0.15
+        }
+    },
+
+    "damage_increase_medium":{
+        "type": "origins:conditioned_attribute",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:netherite_axe"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:diamond_axe"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:gold_axe"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:trident"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_medium",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "modifier":{
+            "name":"Perfect strike damage bonus",
+            "attribute": "minecraft:attack_damage",
+            "operation": "multiply_total",
+            "value": 0.15
+        }
+    },
+    
+    "Damage_increase_slow":{
+        "type":"origins:conditioned_attribute",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:iron_axe"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:stone_axe"
+                                }
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient":{
+                                    "item": "minecraft:wooden_axe"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_slow",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "modifier":{
+            "name":"Perfect strike damage bonus",
+            "attribute": "minecraft:attack_damage",
+            "operation": "multiply_total",
+            "value": 0.15
+        }
+    }
+}

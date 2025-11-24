@@ -5,8 +5,7 @@
         "description":"WIP",
         "cooldown": 80,
         "key": {
-            "key": "key.sprint",
-            "continuous": true
+            "key": "key.sprint"
         },
         "hud_render": {
             "should_render": true,

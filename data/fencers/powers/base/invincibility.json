@@ -1,0 +1,31 @@
+{
+    "type":"origins:multiple",
+    "hidden": true,
+    
+    "period":{
+        "type":"origins:cooldown",
+        "cooldown": 10,
+        
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "knockback":{
+        "type": "origins:conditioned_attribute",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_period",
+            "comparison": "!=",
+            "compare_to": 0
+        },
+        "modifier":{
+            "name": "knockback",
+            "attribute": "minecraft:knockback_resistance",
+            "operation": "addition",
+            "value": 1
+        },
+        "tick_rate": 20,
+        "update_health": true
+    }
+}

@@ -16,8 +16,13 @@
                 "origin": "fencers:duelist"
             },
             "origins": [
-                "fencers:blitz"
+                "fencers:blitz",
+                "fencers:no_style",
+                "fencers:sage"
             ]
         }
+    ],
+    "exclude_random": [
+        "fencers:no_style"
     ]
 }

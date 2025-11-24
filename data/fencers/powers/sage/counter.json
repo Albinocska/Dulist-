@@ -1,0 +1,169 @@
+{
+    "name": "Counter",
+    "description": "Parry this you filthy casual. When right clicking with a weapon, you can parry an attack. Attacking immidieately afterwards deals increased damage",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "text": "You only have a half a second window to parry",
+            "sprite": "origins:textures/gui/badge/info.png"
+        }
+    ],
+    "type": "origins:multiple",
+
+    "period":{
+        "type": "origins:cooldown",
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "ability": {
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:diamond_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:diamond_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:netherite_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:stone_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:golden_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:iron_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:wooden_sword"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:diamond_axe"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:diamond_axe"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:netherite_axe"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:stone_axe"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:golden_axe"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:iron_axe"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:wooden_axe"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:trident"
+                        }
+                    }
+                ]
+            }
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "fencers:base/invincibility_period"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_period"
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                }
+            ]
+            
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 1,
+            "icon_index": 1
+        },
+        "key": {
+            "key": "key.use"
+        }
+    },
+    
+    "damage_increase":{
+        "type": "origins:conditioned_attribute",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_period",
+            "comparison": "!=",
+            "compare_to": 0
+        },
+        "modifier":{
+            "name": "damage",
+            "attribute": "minecraft:attack_damage",
+            "operation": "addition",
+            "value": 5
+        },
+        "tick_rate": 20,
+        "update_health": true
+    }
+}
