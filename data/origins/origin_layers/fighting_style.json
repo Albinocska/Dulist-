@@ -3,12 +3,8 @@
     "name":"Fighting style",
     "allow_random": true,
     "enabled": true,
-    "missing_description":{
-        "text":"You currently have no fighting style"
-    },
-    "missing_name":{
-        "text":"None"
-    },
+    "missing_description":"You currently have no fighting style",
+    "missing_name":"None",
     "origins": [
         {
             "condition": {

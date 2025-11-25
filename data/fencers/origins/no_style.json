@@ -1,10 +1,6 @@
 {
-    "name":"Steal soul[PL]",
-    "description":[
-        {
-            "text":"You have no need for fancy fighting styles and pety tricks. Anything beyond the absolute basics is overkill"
-        }
-    ],
+    "name":"Steel soul[PL]",
+    "description":"You have no need for fancy fighting styles and pety tricks. Anything beyond the absolute basics is overkill",
     "impact": 0,
     "icon":"minecraft:skeleton_skull"
 }
