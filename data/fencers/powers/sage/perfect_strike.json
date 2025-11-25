@@ -1,6 +1,16 @@
 {
     "type": "origins:multiple",
+    "name":"Perfect strikes",
+    "description":"Reuse your momentum from your previous strike to increase the damage you deal. When attack right after your weapon recharges, you deal 5 more damage",
 
+    "ultra_fast":{
+        "type": "origins:cooldown",
+        "cooldown": 15,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    
     "fast":{
         "type": "origins:cooldown",
         "cooldown": 20,
@@ -25,11 +35,23 @@
         }
     },
 
+    "snail":{
+        "type": "origins:cooldown",
+        "cooldown": 35,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
     "reset_on_hit":{
         "type": "origins:self_action_on_hit",
         "entity_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_ultra_fast"
+                },
                 {
                     "type": "origins:trigger_cooldown",
                     "power": "*:*_fast"
@@ -41,6 +63,10 @@
                 {
                     "type": "origins:trigger_cooldown",
                     "power": "*:*_slow"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_snail"
                 }
             ]
         },
@@ -49,167 +75,133 @@
         }
     },
 
-    "damage_increase_fast":{
+    "damage_increase":{
         "type": "origins:conditioned_attribute",
         "condition": {
-            "type": "origins:and",
+            "type":"origins:or",
             "conditions": [
+
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:netherite_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:diamond_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:gold_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:iron_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                        "item": "minecraft:stone_sword"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:wooden_sword"
-                                }
-                            }
-                        ]
-                    }
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": ">=",
+                            "compare_to": 2
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_ultra_fast",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
                 },
+
+
                 {
-                    "type": "origins:resource",
-                    "resource": "*:*_fast",
-                    "comparison": "!=",
-                    "compare_to": 0
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": ">=",
+                            "compare_to": 1.3333
+                        },
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": "<",
+                            "compare_to": 2
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_fast",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
+                },
+
+
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": ">=",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": "<",
+                            "compare_to": 1.3333
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_medium",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
+                },
+
+
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": ">=",
+                            "compare_to": 0.8
+                        },
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": "<",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_slow",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
+                },
+
+
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": ">=",
+                            "compare_to": 0.666666
+                        },
+                        {
+                            "type": "origins:attribute",
+                            "attribute": "minecraft:attack_speed",
+                            "comparison": "<",
+                            "compare_to": 0.8
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_snail",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
                 }
             ]
+
         },
 
-        "modifier":{
-            "name":"Perfect strike damage bonus",
-            "attribute": "minecraft:attack_damage",
-            "operation": "multiply_total",
-            "value": 0.15
-        }
-    },
-
-    "damage_increase_medium":{
-        "type": "origins:conditioned_attribute",
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:netherite_axe"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:diamond_axe"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:gold_axe"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:trident"
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_medium",
-                    "comparison": "!=",
-                    "compare_to": 0
-                }
-            ]
-        },
-        "modifier":{
-            "name":"Perfect strike damage bonus",
-            "attribute": "minecraft:attack_damage",
-            "operation": "multiply_total",
-            "value": 0.15
-        }
-    },
-    
-    "Damage_increase_slow":{
-        "type":"origins:conditioned_attribute",
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "mainhand",
-                    "item_condition": {
-                        "type": "origins:or",
-                        "conditions": [
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:iron_axe"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:stone_axe"
-                                }
-                            },
-                            {
-                                "type": "origins:ingredient",
-                                "ingredient":{
-                                    "item": "minecraft:wooden_axe"
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_slow",
-                    "comparison": "!=",
-                    "compare_to": 0
-                }
-            ]
-        },
         "modifier":{
             "name":"Perfect strike damage bonus",
             "attribute": "minecraft:attack_damage",

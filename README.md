@@ -1,1 +1,0 @@
-# Duelist-Origin layer version
