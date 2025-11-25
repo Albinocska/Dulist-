@@ -69,12 +69,6 @@
                         "resource": "fencers:base/invincibility_period",
                         "comparison": "==",
                         "compare_to": 0
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "fencers:block",
-                        "comparison": "==",
-                        "compare_to": 0
                     }
                 ]
                 
