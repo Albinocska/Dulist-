@@ -25,7 +25,7 @@
             "item_condition": {
                 "type":"origins:ingredient",
                 "ingredient":{
-                    "tag": "c:tools/melee_weapons"
+                    "tag": "c:tools/melee_weapon"
                 }
             }
         },
