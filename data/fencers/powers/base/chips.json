@@ -62,16 +62,10 @@
         "self_action": {
             "type":"origins:if_else",
             "condition": {
-                "type":"origins:and",
-                "conditions":[
-                    {
-                        "type": "origins:resource",
-                        "resource": "fencers:base/invincibility_period",
-                        "comparison": "==",
-                        "compare_to": 0
-                    }
-                ]
-                
+                "type": "origins:resource",
+                "resource": "fencers:base/invincibility_period",
+                "comparison": "==",
+                "compare_to": 0 
             },
             "if_action": {
                 "type": "origins:and",
@@ -101,14 +95,12 @@
                     },
                     {
                         "type":"origins:trigger_cooldown",
-                        "power": "fencers:base/invincibility"
+                        "power": "fencers:base/invincibility_period"
                     }
                 ]
             },
             "else_action": {
-                "type": "origins:play_sound",
-                "sound": "minecraft:block.iron.place",
-                "volume": 1
+                "type": "origins:nothing"
             } 
         }
     },
